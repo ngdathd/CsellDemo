@@ -5,7 +5,7 @@ const colorStyles = {
   black: '#000000',
   blue: '#0000ff',
   red: '#ff0000',
-  green: '#00ff00',
+  green: '#2ADB92',
 
   darkGray: '#828282',
   lightGray: '#eeeef0',

@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
-import {Dimensions, View, Image, Text} from 'react-native';
+import {View, Image, Text} from 'react-native';
 import {ToolbarComponent} from '../../components';
 import faker from 'faker';
 import {RecyclerListView, DataProvider, LayoutProvider} from 'recyclerlistview';
 import {friendStyles} from '../../../styles/pages';
-
-const SCREEN_WIDTH = Dimensions.get('screen').width;
+import {Constants} from '../../../stores/constants';
 
 class Friend extends Component {
   constructor(props) {
@@ -22,6 +21,8 @@ class Friend extends Component {
       });
     }
 
+    // console.log(fakeData[0]);
+
     this.state = {
       list: new DataProvider((r1, r2) => r1 !== r2).cloneWithRows(fakeData),
     };
@@ -31,7 +32,7 @@ class Friend extends Component {
         return this.state.list.getDataForIndex(i).id % 3;
       },
       (_type, dim) => {
-        dim.width = SCREEN_WIDTH;
+        dim.width = Constants.SCREEN_WIDTH;
         dim.height = 100;
       },
     );

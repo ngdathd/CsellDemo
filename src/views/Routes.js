@@ -1,23 +1,35 @@
-import React from 'react';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {
+  checkUserStatusSection,
+  userExpiredAction,
+  userInspiredAction,
+} from '../stores/actions/routes.action';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
+import Splash from './pages/Splash';
+import Login from './pages/Login';
+
 import Product from './pages/Product';
 import Customer from './pages/Customer';
 import Social from './pages/Social';
 import Friend from './pages/Friend';
 import Notification from './pages/Notification';
+
 import About from './pages/About';
 
 import ProductDetail from './pages/ProductDetail';
 import ProductCreate from './pages/ProductCreate';
+
 import CustomerDetail from './pages/CustomerDetail';
 
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {colorStyles} from '../styles/components';
+import {bindActionCreators} from 'redux';
 
 const Tab = createBottomTabNavigator();
 function BottomTab() {
@@ -88,14 +100,42 @@ function LeftDrawer() {
   );
 }
 
-function Routes() {
-  return (
-    <>
-      <NavigationContainer>
-        <LeftDrawer />
-      </NavigationContainer>
-    </>
-  );
+class Routes extends Component {
+  render() {
+    if (this.props.isSplash) {
+      return <Splash />;
+    } else {
+      if (this.props.isLogin) {
+        return <Login />;
+      } else {
+        return (
+          <>
+            <NavigationContainer>
+              <LeftDrawer />
+            </NavigationContainer>
+          </>
+        );
+      }
+    }
+  }
+
+  componentDidMount() {
+    this.props.checkUserStatusSection();
+  }
 }
 
-export default Routes;
+const mapStateToProps = ({routesReducer}) => {
+  return {
+    isSplash: routesReducer.isSplash,
+    isLogin: routesReducer.isLogin,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators(
+    {checkUserStatusSection, userExpiredAction, userInspiredAction},
+    dispatch,
+  );
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Routes);

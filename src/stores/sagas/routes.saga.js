@@ -5,6 +5,7 @@ import {
 } from '../actions/ActionTypes';
 import {put, takeLatest, call, all} from 'redux-saga/effects';
 import AsyncStorage from '@react-native-community/async-storage';
+import Utilities from '../../utils/Utilities';
 
 function getDataInServer() {
   return new Promise((resolve) => {
@@ -15,7 +16,7 @@ function getDataInServer() {
 }
 
 async function getDataInAsyncStorage() {
-  const expiredTimeDay = await AsyncStorage.getItem('EXPIRED_TIME_DAY');
+  const expiredTimeDay = await AsyncStorage.getItem('refreshExpiredAt');
   return expiredTimeDay;
 }
 
@@ -25,9 +26,10 @@ function* checkTransactionUser() {
       call(getDataInServer),
       call(getDataInAsyncStorage),
     ]);
-    console.log(data);
+    Utilities.log(data);
+    Utilities.log('refreshExpiredAtr:' + expiredTimeDay);
     if (expiredTimeDay !== null) {
-      let expired = expiredTimeDay - new Date().getTime();
+      let expired = expiredTimeDay * 1000 - new Date().getTime();
       if (expired > 0) {
         yield put({type: USER_INSPIRED});
       } else {
@@ -38,6 +40,7 @@ function* checkTransactionUser() {
     }
   } catch (error) {
     yield put({type: USER_EXPIRED});
+    Utilities.logException('checkTransactionUser', error);
   }
 }
 

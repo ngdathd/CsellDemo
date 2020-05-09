@@ -18,7 +18,7 @@ const OPTIONS_AUTH = {
 };
 
 const serviceClient = {
-  refreshToken: (url, data) => {
+  postDefault: (url, data) => {
     return axios.post(url, data, OPTIONS_DEFAULT);
   },
   get: (url) => {

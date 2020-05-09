@@ -1,10 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {
-  checkUserStatusSection,
-  userExpiredAction,
-  userInspiredAction,
-} from '../stores/actions/routes.action';
+import {checkUserStatusSection} from '../stores/actions';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -132,10 +128,7 @@ const mapStateToProps = ({routesReducer}) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators(
-    {checkUserStatusSection, userExpiredAction, userInspiredAction},
-    dispatch,
-  );
+  return bindActionCreators({checkUserStatusSection}, dispatch);
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Routes);

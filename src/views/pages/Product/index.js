@@ -7,7 +7,7 @@ import {circleButtonStyles, colorStyles} from '../../../styles/components';
 import {productStyles} from '../../../styles/pages';
 import {serviceClient} from '../../../services';
 import {RecyclerListView, DataProvider, LayoutProvider} from 'recyclerlistview';
-import {Constants} from '../../../stores/constants';
+import * as Constants from '../../../stores/constants';
 import {friendStyles} from '../../../styles/pages';
 
 class Product extends Component {

@@ -10,6 +10,8 @@ const colorStyles = {
   darkGray: '#828282',
   lightGray: '#eeeef0',
   transparent: 'transparent',
+
+  background_loading: 'rgba(128, 128, 128,0.5)',
 };
 
 const fontSizeStyles = {

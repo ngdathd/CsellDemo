@@ -1,4 +1,8 @@
-import {USER_EXPIRED, USER_INSPIRED} from '../actions/ActionTypes';
+import {
+  USER_EXPIRED,
+  USER_INSPIRED,
+  LOGIN_SUCCESS,
+} from '../actions/ActionTypes';
 
 const initState = {
   isSplash: true,
@@ -11,6 +15,9 @@ const routesReducer = (state = initState, action) => {
       return {...state, isSplash: false, isLogin: true};
     }
     case USER_INSPIRED: {
+      return {...state, isSplash: false, isLogin: false};
+    }
+    case LOGIN_SUCCESS: {
       return {...state, isSplash: false, isLogin: false};
     }
     default:

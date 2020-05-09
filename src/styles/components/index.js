@@ -9,6 +9,7 @@ import {
 import {toolbarStyles} from './_component.toolbar';
 import {customerStyles} from './_component.customer';
 import {circleButtonStyles} from './_component.circle.button';
+import {rootLoadingStyles} from './_component.root.loading';
 
 export {
   colorStyles,
@@ -19,4 +20,5 @@ export {
   toolbarStyles,
   customerStyles,
   circleButtonStyles,
+  rootLoadingStyles,
 };

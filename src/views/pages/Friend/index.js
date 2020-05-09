@@ -4,7 +4,7 @@ import {ToolbarComponent} from '../../components';
 import faker from 'faker';
 import {RecyclerListView, DataProvider, LayoutProvider} from 'recyclerlistview';
 import {friendStyles} from '../../../styles/pages';
-import {Constants} from '../../../stores/constants';
+import * as Constants from '../../../stores/constants';
 
 class Friend extends Component {
   constructor(props) {

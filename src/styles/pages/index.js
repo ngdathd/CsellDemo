@@ -1,3 +1,4 @@
+import {splashStyles} from './_page.splash';
 import {loginStyles} from './_page.login';
 import {aboutStyles} from './_page.about';
 import {productStyles} from './_page.product';
@@ -6,6 +7,7 @@ import {customerDetailStyles} from './_page.customer.detail';
 import {friendStyles} from './_page.friend';
 
 export {
+  splashStyles,
   loginStyles,
   aboutStyles,
   productStyles,

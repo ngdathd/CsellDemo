@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "168724998800",
+    "firebase_url": "https://cselldemo.firebaseio.com",
+    "project_id": "cselldemo",
+    "storage_bucket": "cselldemo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:168724998800:android:a922fd7ddb255cca14c615",
+        "android_client_info": {
+          "package_name": "com.cselldemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "168724998800-5dd5gaur2hsjt87qmg62i9t9pdin74o5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7YTK8y7ce5epmwQxFx5lgc03HqkWErmE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "168724998800-5dd5gaur2hsjt87qmg62i9t9pdin74o5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

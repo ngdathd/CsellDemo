@@ -7,7 +7,7 @@ export default class RootLoading extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isShow: true,
+      isShow: false,
       textBody: 'Vui lòng chờ...',
     };
     global.rootLoadingContext = this;

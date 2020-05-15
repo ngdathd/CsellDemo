@@ -1,4 +1,6 @@
 import ToastNew from 'react-native-root-toast';
+import vi from '../config/locates/vi.json';
+import en from '../config/locates/en.json';
 
 export default class Utilities {
   static log(log) {
@@ -19,6 +21,46 @@ export default class Utilities {
           ' | ' +
           String(JSON.stringify(error)),
       );
+    }
+  }
+
+  static showHideRootLoading(isShow, textBody) {
+    try {
+      if (
+        isShow === false &&
+        global.rootLoadingContext.state.isShow === false
+      ) {
+        return;
+      }
+
+      if (isShow === true && global.rootLoadingContext.state.isShow === true) {
+        return;
+      }
+
+      global.rootLoadingContext.setState({
+        isShow: isShow,
+        textBody: textBody ? textBody : 'Vui lòng chờ...',
+      });
+    } catch (error) {
+      Utilities.logException('Utilities', error);
+    }
+  }
+
+  static onChangeLanguage(languageCode) {
+    try {
+      switch (languageCode) {
+        case 'vi':
+          global.language = vi;
+          break;
+        case 'en':
+          global.language = en;
+          break;
+        default:
+          global.language = vi;
+          break;
+      }
+    } catch (error) {
+      global.language = vi;
     }
   }
 

@@ -29,7 +29,7 @@ function* checkTransactionUser() {
     Utilities.log(data);
     Utilities.log('refreshExpiredAtr:' + expiredTimeDay);
     if (expiredTimeDay !== null) {
-      let expired = expiredTimeDay * 1000 - new Date().getTime();
+      let expired = expiredTimeDay - new Date().getTime();
       if (expired > 0) {
         yield put({type: USER_INSPIRED});
       } else {

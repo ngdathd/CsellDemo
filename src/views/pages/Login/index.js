@@ -23,6 +23,7 @@ class Login extends Component {
 
   handleLogin() {
     try {
+      Utilities.showHideRootLoading(true);
       this.props.loginAction(
         this.mapLoginObj.username,
         this.mapLoginObj.password,

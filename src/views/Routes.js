@@ -7,6 +7,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
+import {RootLoading} from './components';
 import Splash from './pages/Splash';
 import Login from './pages/Login';
 
@@ -102,13 +103,19 @@ class Routes extends Component {
       return <Splash />;
     } else {
       if (this.props.isLogin) {
-        return <Login />;
+        return (
+          <>
+            <Login />
+            <RootLoading />
+          </>
+        );
       } else {
         return (
           <>
             <NavigationContainer>
               <LeftDrawer />
             </NavigationContainer>
+            <RootLoading />
           </>
         );
       }

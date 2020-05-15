@@ -1,4 +1,5 @@
 import ToolbarComponent from './ToolbarComponent';
 import CustomerItemComponent from './CustomerItem';
+import RootLoading from './RootLoading';
 
-export {ToolbarComponent, CustomerItemComponent};
+export {ToolbarComponent, CustomerItemComponent, RootLoading};

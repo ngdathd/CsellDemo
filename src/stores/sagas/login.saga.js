@@ -30,12 +30,15 @@ function* loginWithPassword(action) {
         ['refreshExpiredAt', JSON.stringify(tokenObj.refreshExpiredAt)],
         ['userObj', JSON.stringify(userObj)],
       ]);
+      Utilities.showHideRootLoading(false);
       if (res) {
         yield put({type: LOGIN_FAILURE, message: 'LOGIN_FAIL'});
       } else {
         yield put({type: LOGIN_SUCCESS});
       }
     } else {
+      Utilities.showHideRootLoading(false);
+
       Utilities.showToastError(data.message);
       yield put({type: LOGIN_FAILURE, message: data.message});
     }

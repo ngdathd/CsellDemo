@@ -9,7 +9,9 @@ import {serviceClient} from '../../../services';
 import {RecyclerListView, DataProvider, LayoutProvider} from 'recyclerlistview';
 import * as Constants from '../../../stores/constants';
 import {friendStyles} from '../../../styles/pages';
+import {NativeModules} from 'react-native';
 
+const {ToastModule} = NativeModules;
 class Product extends Component {
   constructor(props) {
     super(props);
@@ -87,6 +89,7 @@ class Product extends Component {
 
   onPressFilterProduct() {
     console.log('onPressFilterProduct');
+    ToastModule.showText('Awesome', ToastModule.LENGTH_SHORT);
   }
 
   componentDidMount() {

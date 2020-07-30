@@ -26,8 +26,7 @@ function* checkTransactionUser() {
       call(getDataInServer),
       call(getDataInAsyncStorage),
     ]);
-    Utilities.log(data);
-    Utilities.log('refreshExpiredAtr:' + expiredTimeDay);
+
     if (expiredTimeDay !== null) {
       let expired = expiredTimeDay - new Date().getTime();
       if (expired > 0) {

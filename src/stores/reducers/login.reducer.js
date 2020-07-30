@@ -10,6 +10,7 @@ const loginReducer = (state = initState, action) => {
       return {...state, message: action.message};
     }
     default:
+        console.log(1111);
       return state;
   }
 };
